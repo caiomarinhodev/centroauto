@@ -14,25 +14,21 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>ITEM</th>
-                                        <th>SKU</th>
-                                        <th>QTD</th>
-                                        <th>BALCAO</th>
+                                        <th>NOME</th>
+                                        <th>CPF</th>
                                         <th>Criado em</th>
                                         <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {% for item in itens %}
+                                    {% for cliente in clientes %}
                                         <tr>
-                                            <td>{{ item.id }}</td>
-                                            <td>{{ item.produto.titulo }}</td>
-                                            <td>{{ item.produto.sku }}</td>
-                                            <td>{{ item.quantidade }}</td>
-                                            <td>{{ item.balcao }}</td>
-                                            <td>{{ item.criado_em|date:"d/m/Y G:i" }}</td>
+                                            <td>{{ cliente.id }}</td>
+                                            <td><a href="{% url 'edit' cliente.pk %}">{{ cliente.nome }}</a></td>
+                                            <td>{{ cliente.cpf }}</td>
+                                            <td>{{ cliente.created_at|date:"d/m/Y" }}</td>
                                             <td>
-                                                <a class="remover" href="{% url 'remove_product' item.id %}">
+                                                <a class="remover" href="{% url 'delete' cliente.id %}">
                                                     <i class="fa fa-trash-o"></i>
                                                 </a>
                                             </td>

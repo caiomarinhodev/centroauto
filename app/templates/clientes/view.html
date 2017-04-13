@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    {# Example content #}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <!-- form start -->
+                <div class="box-body">
+                    {{ form.as_p }}
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#inicio').addClass('active');
+        });
+    </script>
+    <!-- /.row -->
+
+{% endblock %}

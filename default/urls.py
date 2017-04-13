@@ -17,8 +17,15 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
+from app.views.ClientView import *
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^admin/', admin.site.urls),
     url(r'^admin/login/$', auth_views.login),
+    url(r'^$', ClienteList.as_view(), name='list'),
+    url(r'^create/$', ClienteCreate.as_view(), name='create'),
+    url(r'^edit/(?P<pk>\d+)/$', ClienteUpdate.as_view(), name='edit'),
+    # url(r'^view/(?P<pk>\d+)/$', Cliente.as_view(), name='view'),
+    url(r'^delete/(?P<pk>\d+)/$', ClienteDelete.as_view(), name='delete'),
 ]
